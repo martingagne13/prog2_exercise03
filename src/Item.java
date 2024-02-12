@@ -52,6 +52,35 @@ public class Item {
         return this.prix;
     }
 
+    public boolean isTps() {
+        return tps;
+    }
 
+    public boolean isTvq() {
+        return tvq;
+    }
 
+    public String toString(){
+        return "Description : " + this.description + "\nPrix : " + this.prix + "\nIdentification : " + this.noIdentification
+                + "\nTPS : " + this.tps + "\nTVQ : " + this.tvq;
+    }
+
+    public boolean equals(Object autreItem){
+        if(autreItem != null){
+            System.out.println(autreItem.getClass().getTypeName());
+            if(autreItem.getClass().getTypeName() == "Item"){
+
+                Item item = (Item) autreItem;
+
+                if(item.tvq != this.tvq) return false;
+                if(item.tps != this.tps) return false;
+                if(item.description != this.description) return false;
+                if(item.prix != this.prix) return false;
+
+                return true;
+
+            }
+        }else return false;
+        return false;
+    }
 }
